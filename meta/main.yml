@@ -1,0 +1,18 @@
+---
+galaxy_info:
+  author: 'James Gomez'
+  description: 'Deploy a nextcloud server in docker (all-in-one)'
+  license: BSD
+  min_ansible_version: '2.5'
+
+  platforms:
+  - name: Ubuntu
+    versions:
+    - trusty
+    - xenial
+
+  categories:
+  - system
+
+dependencies: []
+allow_duplicates: yes 

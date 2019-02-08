@@ -1,0 +1,20 @@
+---
+# handlers file for librenms
+- name: setup librenms db
+  shell: |
+    docker exec librenms setup_database
+  become: true
+  listen: "set up db"
+
+- name: create librenms admin
+  shell: |
+   docker exec librenms create_admin
+  become: true
+  listen: "set up admin"
+
+- name: restart db
+  docker_container:
+    name: "{{ librenms.mysql_db_host }}"
+    restart: true
+  become: true
+  listen: "restart db"

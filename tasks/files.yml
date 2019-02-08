@@ -1,0 +1,10 @@
+---
+
+- name: Create db volumes dir 
+  file: path="{{ librenms.db_volume }}" state=directory recurse=yes
+
+- name: Create logs volume dir 
+  file: path="{{ librenms.logs_volume }}" state=directory recurse=yes
+
+- name: Create rrd volumes dir 
+  file: path="{{ librenms.rrd_volume }}" state=directory recurse=yes

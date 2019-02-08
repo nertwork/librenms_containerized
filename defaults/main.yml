@@ -1,0 +1,29 @@
+---
+librenms:
+  db_volume: "/data/librenms/db"
+  mysql_container_image: "mariadb"
+  mysql_container_tag: "latest"
+  mysql_db_name: "librenms"
+  mysql_db_host: "db"
+  mysql_db_pw: "super_secret2"
+  mysql_db_user: "librenms"
+  mysql_root_pw: "super_secret"
+  librenms_db_user: "admin"
+  restart_policy: "always"
+  smtp_container_image: "namshi/smtp"
+  smtp_container_tag: "latest"
+  state: "started"
+  librenms_container_image: "jarischaefer/docker-librenms"
+  librenms_container_tag: "latest"
+  logs_volume: "/data/librenms/logs"
+  db_config_volume: "/data/librenms/db_config"
+  rrd_volume: "/data/librenms/rrd"
+  base_url: "http://localhost"
+  config_php: "/data/librenms/config.php"
+  discovery_threads: 2
+  pollers: 6
+  custom_db_config:
+    - "[galera]"
+    - "innodb_flush_log_at_trx_commit = 2"
+    - "[mysqld]"
+    - "max_connections = 1000"
