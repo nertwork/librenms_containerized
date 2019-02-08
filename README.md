@@ -25,7 +25,11 @@ An all-in one [Ansible](https://www.ansible.com) [MariaDB](https://www.ansible.c
 
 ## Role Variables
 Required variables: 
-- `app_key: "base64:Q0+ZV56/5Uwz79vsvS4ZfwQFOty3e9DJEouEy+IXvz8="`
+```
+librenms:
+  app_key: "base64:Q0+ZV56/5Uwz79vsvS4ZfwQFOty3e9DJEouEy+IXvz8="
+  base_url: "http://librenms.sd.dreamhost.com/"
+```
 
 Replace "base64:Q0+ZV56/5Uwz79vsvS4ZfwQFOty3e9DJEouEy+IXvz8=" with your own app key
 
