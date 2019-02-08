@@ -2,17 +2,25 @@
 galaxy_info:
   author: 'James Gomez'
   description: 'Deploy a nextcloud server in docker (all-in-one)'
-  license: BSD
-  min_ansible_version: '2.5'
+  license: Apache-2.0
+  min_ansible_version: '2.2'
 
   platforms:
   - name: Ubuntu
     versions:
-    - trusty
-    - xenial
+      - trusty
+      - xenial
+  - name: EL
+    versions:
+      - 6
+      - 7
 
-  categories:
-  - system
+  galaxy_tags:
+    - system
+    - sql
+    - nms
+    - libre
+    - librenms
 
 dependencies: []
 allow_duplicates: yes 
