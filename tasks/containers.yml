@@ -34,6 +34,8 @@
     volumes:
       - "{{ librenms.logs_volume }}:/opt/librenms/logs"
       - "{{ librenms.rrd_volume }}:/opt/librenms/rrd"
+      - "{{ librenms.conf_d }}:/opt/librenms/conf.d"
+      - "{{ librenms.includes }}:/opt/librenms/includes/custom"
     ports:
       - "80:80"
     env:

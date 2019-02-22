@@ -15,6 +15,8 @@ librenms:
   state: "started"
   librenms_container_image: "jarischaefer/docker-librenms"
   librenms_container_tag: "latest"
+  conf_d: "/data/librenms/conf.d/"
+  includes: "/data/librenms/includes"
   logs_volume: "/data/librenms/logs"
   db_config_volume: "/data/librenms/db_config"
   rrd_volume: "/data/librenms/rrd"
