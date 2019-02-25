@@ -24,6 +24,7 @@ librenms:
   config_php: "/data/librenms/config.php"
   discovery_threads: 2
   pollers: 6
+  distributed: false
   custom_db_config:
     - "[galera]"
     - "innodb_flush_log_at_trx_commit = 2"

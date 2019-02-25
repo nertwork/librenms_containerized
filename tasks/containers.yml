@@ -1,5 +1,5 @@
 ---
-- name: create librenms db
+- name: create librenms db with exposed port
   docker_container:
     name: "{{ librenms.mysql_db_host }}"
     image: "{{ librenms.mysql_container_image }}:{{ librenms.mysql_container_tag }}"
@@ -13,6 +13,25 @@
       MYSQL_PASSWORD: "{{ librenms.mysql_db_pw }}"
       MYSQL_DATABASE: "{{ librenms.mysql_db_name }}"
       MYSQL_USER: "{{ librenms.mysql_db_user }}"
+    ports:
+      - "3306:3306"
+  when: librenms.distributed
+
+- name: create librenms db without exposed port
+  docker_container:
+    name: "{{ librenms.mysql_db_host }}"
+    image: "{{ librenms.mysql_container_image }}:{{ librenms.mysql_container_tag }}"
+    state: "{{ librenms.state }}"
+    restart_policy: "{{ librenms.restart_policy }}"
+    volumes:
+      - "{{ librenms.db_volume }}:/var/lib/mysql"
+      - "{{ librenms.db_config_volume }}:/etc/mysql/conf.d"
+    env:
+      MYSQL_ROOT_PASSWORD: "{{ librenms.mysql_root_pw }}"
+      MYSQL_PASSWORD: "{{ librenms.mysql_db_pw }}"
+      MYSQL_DATABASE: "{{ librenms.mysql_db_name }}"
+      MYSQL_USER: "{{ librenms.mysql_db_user }}"
+  when: not librenms.distributed
 
 - name: custom db config
   lineinfile:
@@ -44,8 +63,8 @@
       DB_NAME: "{{ librenms.mysql_db_name }}"
       DB_USER: "{{ librenms.mysql_db_user }}"
       DB_PASS: "{{ librenms.mysql_db_pw }}"
-      BASE_URL: "{{ librenms.base_url }}" 
-      POLLERS: "{{ librenms.pollers }}" 
+      BASE_URL: "{{ librenms.base_url }}"
+      POLLERS: "{{ librenms.pollers }}"
       DISCOVERY_THREADS: "{{ librenms.discovery_threads }}"
   notify:
     - set up db
