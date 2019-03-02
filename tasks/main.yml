@@ -1,3 +1,20 @@
 ---
   - include_tasks: files.yml
-  - include_tasks: containers.yml
+
+  - include_tasks: non_distributed.yml
+    when: not librenms.distributed
+
+  - include_tasks: dependencies.yml
+    when: 
+      - librenms.distributed
+
+  - include_tasks: all_in_one.yml
+    when: 
+      - librenms.distributed
+      - librenms.all_in_one
+
+  - include_tasks: librenms_services.yml
+    when: 
+      - librenms.distributed
+      - not librenms.all_in_one
+

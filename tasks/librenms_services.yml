@@ -1,0 +1,30 @@
+---
+- name: create librenms poller
+  docker_container:
+    name: librenms
+    image: "{{ librenms.librenms_container_image }}:{{ librenms.librenms_container_tag }}"
+    state: "{{ librenms.state }}"
+    restart_policy: "{{ librenms.restart_policy }}"
+    volumes:
+      - "{{ librenms.logs_volume }}:/opt/librenms/logs"
+      - "{{ librenms.rrd_volume }}:/opt/librenms/rrd"
+      - "{{ librenms.conf_d }}:/opt/librenms/conf.d"
+      - "{{ librenms.includes }}:/opt/librenms/includes/custom"
+    env:
+      APP_KEY: "{{ librenms.app_key }}"
+      DB_HOST: "{{ librenms.mysql_db_host }}"
+      DB_NAME: "{{ librenms.mysql_db_name }}"
+      DB_USER: "{{ librenms.mysql_db_user }}"
+      DB_PASS: "{{ librenms.mysql_db_pw }}"
+      BASE_URL: "{{ librenms.base_url }}"
+      POLLERS: "{{ librenms.pollers }}"
+      DISCOVERY_THREADS: "{{ librenms.discovery_threads }}"
+      POLLERS_CRON: "{{ librenms.pollers_cron }}"
+      ALERTS_ENABLE: "false"
+      DISCOVERY_ENABLE: "false"
+      NGINX_ENABLE: "false"
+      RRDCACHED_ENABLE: "false"
+      BILLING_CALCULATE_ENABLE: "false"
+      MEMCACHED_HOST: "{{ librenms.memcached_host }}"
+      RRDCACHED_CONNECT: "{{ librenms.rrdcached_connect }}"
+  when: librenms.poller

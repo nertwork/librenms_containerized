@@ -16,17 +16,56 @@ librenms:
   librenms_container_image: "jarischaefer/docker-librenms"
   librenms_container_tag: "latest"
   conf_d: "/data/librenms/conf.d/"
-  includes: "/data/librenms/includes"
-  logs_volume: "/data/librenms/logs"
-  db_config_volume: "/data/librenms/db_config"
-  rrd_volume: "/data/librenms/rrd"
+  includes: "/data/librenms/includes/"
+  logs_volume: "/data/librenms/logs/"
+  db_config_volume: "/data/librenms/db_config/"
+  rrd_volume: "/data/librenms/rrd/"
   base_url: "http://localhost"
   config_php: "/data/librenms/config.php"
   discovery_threads: 2
   pollers: 6
-  distributed: false
   custom_db_config:
     - "[galera]"
     - "innodb_flush_log_at_trx_commit = 2"
     - "[mysqld]"
     - "max_connections = 1000"
+  pollers_cron: "*/5 * * * *"
+## Distributed configuration
+  distributed: false
+  sql: false
+  poller: false
+  all_in_one: false
+  rrdcached: false  
+  memcached: false  
+  rrdcached_threads: 6
+  memcached_size: 512
+  memcached_host: localhost
+  rrdcached_connect: "localhost:42217"
+  distributed_custom: []
+  poller_group: false
+  rrdcached_enable: true
+
+
+
+## Example of distributed being true
+#
+## This creates a sql exposed container with all services on a single container
+# librenms:
+#   distributed: true
+#   sql: true
+#   all_in_one: true
+#
+## This creates just a poller
+# librenms:
+#   distributed: true
+#   poller: true
+#
+## This creates rrdcached
+# librenms:
+#   distributed: true
+#   rrdcached: true
+#
+## This creates rrdcached
+# librenms:
+#   distributed: true
+#   memcached: true

@@ -1,7 +1,7 @@
 ---
 galaxy_info:
   author: 'James Gomez'
-  description: 'Deploy a nextcloud server in docker (all-in-one)'
+  description: 'Deploy a librenms server in docker (all-in-one)'
   license: Apache-2.0
   min_ansible_version: '2.2'
 
