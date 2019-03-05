@@ -44,8 +44,7 @@ librenms:
   distributed_custom: []
   poller_group: false
   rrdcached_enable: true
-
-
+  frontend: false
 
 ## Example of distributed being true
 #
@@ -59,6 +58,11 @@ librenms:
 # librenms:
 #   distributed: true
 #   poller: true
+#
+## This creates just a frontend
+# librenms:
+#   distributed: true
+#   frontend: true
 #
 ## This creates rrdcached
 # librenms:
