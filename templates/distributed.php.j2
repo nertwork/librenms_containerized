@@ -1,0 +1,9 @@
+<?php
+// ansible managed
+// nertwork.librenms_containerized/templates/distributed.php.j2
+{% for data in librenms['distributed_custom'] %}
+{{ data }}
+{% endfor %}
+{% if librenms['poller_group'] is defined %}
+$config['distributed_poller_group']          = '{{ librenms['poller_group'] }}';
+{% endif %}

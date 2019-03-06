@@ -17,4 +17,13 @@
     name: "{{ librenms.mysql_db_host }}"
     restart: true
   become: true
+  ignore_errors: true
   listen: "restart db"
+
+- name: restart librenms
+  docker_container:
+    name: librenms
+    restart: true
+  become: true
+  ignore_errors: true
+  listen: "restart librenms"

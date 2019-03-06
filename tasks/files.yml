@@ -1,10 +1,23 @@
 ---
 
-- name: Create db volumes dir
-  file: path="{{ librenms.db_volume }}" state=directory recurse=yes
+- name: Create volumes
+  file:
+    path: "{{ item }}"
+    state: directory
+    recurse: true
+    owner: 999                                 
+    group: 999                                 
+    mode: 0764
+  with_items:
+    - "{{ librenms.db_volume }}"
+    - "{{ librenms.rrd_volume }}"
+    - "{{ librenms.conf_d }}"
+    - "{{ librenms.includes }}"
 
-- name: Create logs volume dir
-  file: path="{{ librenms.logs_volume }}" state=directory recurse=yes
-
-- name: Create rrd volumes dir
-  file: path="{{ librenms.rrd_volume }}" state=directory recurse=yes
+- name: Create distributed custom config
+  template:                                    
+    src: templates/distributed.php.j2 
+    dest: "{{ librenms.conf_d }}/distributed.php"
+    owner: 999                                 
+    group: 999                                 
+    mode: 0764                                 
