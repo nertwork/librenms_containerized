@@ -45,6 +45,7 @@ librenms:
   poller_group: false
   rrdcached_enable: true
   frontend: false
+  poller_discovery: false
 
 ## Example of distributed being true
 #
