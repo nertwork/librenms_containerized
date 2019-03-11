@@ -22,7 +22,7 @@
       POLLERS_CRON: "{{ librenms.pollers_cron }}"
       ALERTS_ENABLE: "false"
       DAILY_ENABLE: "false"
-      DISCOVERY_ENABLE: "false"
+      DISCOVERY_ENABLE: "{{ librenms.poller_discovery }}"
       NGINX_ENABLE: "false"
       RRDCACHED_ENABLE: "false"
       BILLING_CALCULATE_ENABLE: "false"
