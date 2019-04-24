@@ -17,4 +17,3 @@
     when: 
       - librenms.distributed
       - not librenms.all_in_one
-
