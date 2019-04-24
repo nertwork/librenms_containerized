@@ -45,7 +45,10 @@ librenms:
   poller_group: false
   rrdcached_enable: true
   frontend: false
-  poller_discovery: false
+  poller_discovery: "false"
+  nginx_enable: "false"
+  dns_servers: []
+  search_domains: []
 
 ## Example of distributed being true
 #
