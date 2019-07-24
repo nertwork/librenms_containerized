@@ -49,6 +49,9 @@ librenms:
   nginx_enable: "false"
   dns_servers: []
   search_domains: []
+  alerts_enable: "false"
+  daily_enable: "false"
+  billing_calc_enable: "false"
 
 ## Example of distributed being true
 #
