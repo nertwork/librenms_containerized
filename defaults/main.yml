@@ -16,6 +16,7 @@ librenms:
   librenms_container_image: "jarischaefer/docker-librenms"
   librenms_container_tag: "latest"
   conf_d: "/data/librenms/conf.d/"
+  syslog_conf: "/data/librenms/syslog-ng.conf"
   includes: "/data/librenms/includes/"
   logs_volume: "/data/librenms/logs/"
   db_config_volume: "/data/librenms/db_config/"
@@ -52,6 +53,7 @@ librenms:
   alerts_enable: "false"
   daily_enable: "false"
   billing_calc_enable: "false"
+  enable_syslog: "true"
 
 ## Example of distributed being true
 #

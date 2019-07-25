@@ -5,8 +5,8 @@
     path: "{{ item }}"
     state: directory
     recurse: true
-    owner: 999                                 
-    group: 999                                 
+    owner: 999
+    group: 999
     mode: 0764
   with_items:
     - "{{ librenms.db_volume }}"
@@ -15,9 +15,9 @@
     - "{{ librenms.includes }}"
 
 - name: Create distributed custom config
-  template:                                    
-    src: templates/distributed.php.j2 
+  template:
+    src: templates/distributed.php.j2
     dest: "{{ librenms.conf_d }}/distributed.php"
-    owner: 999                                 
-    group: 999                                 
-    mode: 0764                                 
+    owner: 999
+    group: 999
+    mode: 0764
