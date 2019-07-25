@@ -21,3 +21,11 @@
     owner: 999                                 
     group: 999                                 
     mode: 0764                                 
+
+- name: Create syslog-ng config
+  template:
+    src: templates/syslog-ng.conf.j2
+    dest: "{{ librenms.syslog_conf }}
+    owner: 999
+    group: 999
+    mode: 0764
