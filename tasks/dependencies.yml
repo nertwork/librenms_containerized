@@ -47,7 +47,7 @@
 - name: create memcached
   docker_container:
     name: memcached
-    image: bitnami/memcached:1.5.12
+    image: bitnami/memcached:latest
     state: started
     restart_policy: always
     ports:
