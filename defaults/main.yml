@@ -5,6 +5,7 @@ librenms:
   mysql_container_tag: "latest"
   mysql_db_name: "librenms"
   mysql_db_host: "db"
+  mysql_db_port: "3306"
   mysql_db_pw: "super_secret2"
   mysql_db_user: "librenms"
   mysql_root_pw: "super_secret"
@@ -36,8 +37,8 @@ librenms:
   sql: false
   poller: false
   all_in_one: false
-  rrdcached: false  
-  memcached: false  
+  rrdcached: false
+  memcached: false
   rrdcached_threads: 6
   memcached_size: 512
   memcached_host: localhost
