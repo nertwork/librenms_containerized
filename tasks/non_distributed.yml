@@ -43,9 +43,11 @@
       DB_HOST: "{{ librenms.mysql_db_host }}"
       DB_NAME: "{{ librenms.mysql_db_name }}"
       DB_USER: "{{ librenms.mysql_db_user }}"
+      DB_PORT: "{{ librenms.mysql_db_port }}"
       DB_PASS: "{{ librenms.mysql_db_pw }}"
       BASE_URL: "{{ librenms.base_url }}"
       POLLERS: "{{ librenms.pollers }}"
+      POLLERS_CRON: "{{ librenms.pollers_cron }}"
       DISCOVERY_THREADS: "{{ librenms.discovery_threads }}"
   notify:
     - set up db
