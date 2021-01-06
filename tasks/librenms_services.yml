@@ -12,6 +12,8 @@
       - "{{ librenms.rrd_volume }}:/opt/librenms/rrd"
       - "{{ librenms.conf_d }}:/opt/librenms/conf.d"
       - "{{ librenms.includes }}:/opt/librenms/includes/custom"
+      - "{{ librenms.weathermap }}:/opt/librenms/html/plugins/Weathermap/configs"
+      - "librenms_cron:/etc/cron.d"
     ports:
       - "80:80"
       - "514:514/udp"
