@@ -33,6 +33,7 @@ librenms:
     - "[mysqld]"
     - "max_connections = 1000"
   pollers_cron: "*/5 * * * *"
+  weathermap_cron: "*/4 * * * *"
 ## Distributed configuration
   distributed: false
   sql: false

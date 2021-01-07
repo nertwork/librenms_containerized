@@ -35,6 +35,8 @@
       POLLERS_CRON: "{{ librenms.pollers_cron }}"
       RRDCACHED_CONNECT: "{{ librenms.rrdcached_connect }}"
       RRDCACHED_ENABLE: "false"
+      WEATHERMAP_ENABLE: "true"
+      WEATHERMAP_CRON: "{{ librenms.weathermap_cron }}"
   when:
     - librenms.poller
     - librenms.nginx_enable
