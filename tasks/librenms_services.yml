@@ -12,6 +12,7 @@
       - "{{ librenms.rrd_volume }}:/opt/librenms/rrd"
       - "{{ librenms.conf_d }}:/opt/librenms/conf.d"
       - "{{ librenms.includes }}:/opt/librenms/includes/custom"
+      - "{{ librenms.weathermap }}:/opt/librenms/html/plugins/Weathermap/configs"
     ports:
       - "80:80"
       - "514:514/udp"
@@ -34,6 +35,8 @@
       POLLERS_CRON: "{{ librenms.pollers_cron }}"
       RRDCACHED_CONNECT: "{{ librenms.rrdcached_connect }}"
       RRDCACHED_ENABLE: "false"
+      WEATHERMAP_ENABLE: "true"
+      WEATHERMAP_CRON: "{{ librenms.weathermap_cron }}"
   when:
     - librenms.poller
     - librenms.nginx_enable

@@ -22,6 +22,7 @@ librenms:
   logs_volume: "/data/librenms/logs/"
   db_config_volume: "/data/librenms/db_config/"
   rrd_volume: "/data/librenms/rrd/"
+  weathermap: "/data/librenms/Weathermap/configs/"
   base_url: "http://localhost"
   config_php: "/data/librenms/config.php"
   discovery_threads: 2
@@ -32,6 +33,7 @@ librenms:
     - "[mysqld]"
     - "max_connections = 1000"
   pollers_cron: "*/5 * * * *"
+  weathermap_cron: "*/4 * * * *"
 ## Distributed configuration
   distributed: false
   sql: false
